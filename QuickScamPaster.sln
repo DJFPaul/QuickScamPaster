@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "QuickScamPaster", "QuickScamPaster\QuickScamPaster.vbproj", "{434A0CFB-BBF7-48FE-BA9A-17D19549C54E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{434A0CFB-BBF7-48FE-BA9A-17D19549C54E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434A0CFB-BBF7-48FE-BA9A-17D19549C54E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434A0CFB-BBF7-48FE-BA9A-17D19549C54E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434A0CFB-BBF7-48FE-BA9A-17D19549C54E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11AC1A4E-666F-4CD1-AA24-259F81E48EA8}
+	EndGlobalSection
+EndGlobal
