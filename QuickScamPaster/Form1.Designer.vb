@@ -90,7 +90,7 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 42)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 44)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(78, 17)
         Me.CheckBox1.TabIndex = 4
@@ -107,7 +107,7 @@ Partial Class Form1
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(15, 19)
+        Me.CheckBox2.Location = New System.Drawing.Point(7, 20)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(67, 17)
         Me.CheckBox2.TabIndex = 5
@@ -117,7 +117,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(115, 20)
+        Me.Label1.Location = New System.Drawing.Point(118, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 13)
         Me.Label1.TabIndex = 6
@@ -135,7 +135,7 @@ Partial Class Form1
         'MaxTextBox
         '
         Me.MaxTextBox.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MaxTextBox.Location = New System.Drawing.Point(227, 18)
+        Me.MaxTextBox.Location = New System.Drawing.Point(227, 17)
         Me.MaxTextBox.Name = "MaxTextBox"
         Me.MaxTextBox.Size = New System.Drawing.Size(18, 20)
         Me.MaxTextBox.TabIndex = 8
@@ -145,7 +145,7 @@ Partial Class Form1
         '
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Enabled = False
-        Me.CheckBox3.Location = New System.Drawing.Point(82, 42)
+        Me.CheckBox3.Location = New System.Drawing.Point(82, 44)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(54, 17)
         Me.CheckBox3.TabIndex = 9
@@ -192,7 +192,7 @@ Partial Class Form1
         Me.CheckBox4.AutoSize = True
         Me.CheckBox4.Checked = True
         Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox4.Location = New System.Drawing.Point(174, 43)
+        Me.CheckBox4.Location = New System.Drawing.Point(174, 44)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(81, 17)
         Me.CheckBox4.TabIndex = 10
