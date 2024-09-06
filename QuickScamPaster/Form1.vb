@@ -1,9 +1,11 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.Runtime.InteropServices
 Public Class Form1
     Public Declare Function GetAsyncKeyState Lib "user32" (ByVal vKey As Integer) As Int16
 
     Dim LastID As String = ""
     Dim EnterLock As Boolean = False
+    Dim MouseLock As Boolean = False
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If RichTextBox1.Text.Contains(My.Computer.Clipboard.GetText) = True Then
             Button1.BackColor = Color.Red
@@ -41,16 +43,18 @@ Public Class Form1
         If CheckBox1.Checked = True Then
             Keyobserver.Start()
             CheckBox2.CheckState = False
+            CheckBox3.Enabled = True
         Else
             Keyobserver.Stop()
+            CheckBox3.Enabled = False
         End If
     End Sub
 
     Private Sub Keyobserver_Tick(sender As Object, e As EventArgs) Handles Keyobserver.Tick
 
-        If GetAsyncKeyState(Keys.Enter) = -32767 And EnterLock = False Then
+        If GetAsyncKeyState(Keys.Enter) = -32767 And GetActiveProcess.ProcessName = "Discord" And EnterLock = False Then
             EnterLock = True
-            System.Threading.Thread.Sleep(50)
+            System.Threading.Thread.Sleep(64)
             If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
                 SendKeys.SendWait(TextBox1.Text.Replace("<id>", RichTextBox1.Lines(0)))
                 RichTextBox1.SelectionStart = RichTextBox1.GetFirstCharIndexFromLine(0)
@@ -58,9 +62,42 @@ Public Class Form1
                 RichTextBox1.SelectedText = String.Empty
             End If
 
-            System.Threading.Thread.Sleep(100)
+            System.Threading.Thread.Sleep(64)
             EnterLock = False
         End If
+
+        If GetAsyncKeyState(Keys.LButton) = -32767 And GetActiveProcess.ProcessName = "Discord" And MouseLock = False Then
+            MouseLock = True
+            System.Threading.Thread.Sleep(64)
+            If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
+                SendKeys.Send("{TAB}")
+            End If
+
+            While GetAsyncKeyState(Keys.LButton) = -32767
+                'Do not resume code until mouse has been released.
+            End While
+            System.Threading.Thread.Sleep(64)
+
+
+            If True = True Then
+                If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
+                    System.Threading.Thread.Sleep(64)
+                    SendKeys.Send("{ENTER}")
+
+                    System.Threading.Thread.Sleep(128)
+                    If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
+                        SendKeys.SendWait(TextBox1.Text.Replace("<id>", RichTextBox1.Lines(0)))
+                        RichTextBox1.SelectionStart = RichTextBox1.GetFirstCharIndexFromLine(0)
+                        RichTextBox1.SelectionLength = RichTextBox1.Lines(0).Length + 1
+                        RichTextBox1.SelectedText = String.Empty
+                    End If
+                End If
+            End If
+
+
+
+                MouseLock = False
+            End If
     End Sub
     Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked = True Then
@@ -91,4 +128,24 @@ Public Class Form1
             End If
         End If
     End Sub
+    Public Function GetActiveProcess() As Process
+        Dim hWnd As IntPtr = NativeMethods.GetForegroundWindow()
+        Dim ProcessID As UInteger = 0
+
+        NativeMethods.GetWindowThreadProcessId(hWnd, ProcessID)
+
+        Return If(ProcessID <> 0, Process.GetProcessById(ProcessID), Nothing)
+    End Function
+End Class
+Public NotInheritable Class NativeMethods
+    Private Sub New() 'Private constructor as we're not supposed to create instances of this class.
+    End Sub
+
+    <DllImport("user32.dll")>
+    Public Shared Function GetForegroundWindow() As IntPtr
+    End Function
+
+    <DllImport("user32.dll")>
+    Public Shared Function GetWindowThreadProcessId(ByVal hWnd As IntPtr, <Out()> ByRef lpdwProcessId As UInteger) As UInteger
+    End Function
 End Class

@@ -36,6 +36,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MinTextBox = New System.Windows.Forms.TextBox()
         Me.MaxTextBox = New System.Windows.Forms.TextBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Button1
@@ -71,7 +72,7 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(12, 45)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(257, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(202, 20)
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.Text = "?scam <id>"
         '
@@ -82,11 +83,11 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(200, 69)
+        Me.CheckBox1.Location = New System.Drawing.Point(197, 69)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(75, 17)
+        Me.CheckBox1.Size = New System.Drawing.Size(78, 17)
         Me.CheckBox1.TabIndex = 4
-        Me.CheckBox1.Text = "AutoPaste"
+        Me.CheckBox1.Text = "Auto Paste"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Keyobserver
@@ -99,7 +100,7 @@ Partial Class Form1
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(12, 69)
+        Me.CheckBox2.Location = New System.Drawing.Point(13, 69)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(67, 17)
         Me.CheckBox2.TabIndex = 5
@@ -133,11 +134,23 @@ Partial Class Form1
         Me.MaxTextBox.TabIndex = 8
         Me.MaxTextBox.Text = "19"
         '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Enabled = False
+        Me.CheckBox3.Location = New System.Drawing.Point(220, 47)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(54, 17)
+        Me.CheckBox3.TabIndex = 9
+        Me.CheckBox3.Text = "Auto+"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(281, 469)
+        Me.Controls.Add(Me.CheckBox3)
         Me.Controls.Add(Me.MaxTextBox)
         Me.Controls.Add(Me.MinTextBox)
         Me.Controls.Add(Me.Label1)
@@ -169,4 +182,5 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents MinTextBox As TextBox
     Friend WithEvents MaxTextBox As TextBox
+    Friend WithEvents CheckBox3 As CheckBox
 End Class
