@@ -37,6 +37,12 @@ Partial Class Form1
         Me.MinTextBox = New System.Windows.Forms.TextBox()
         Me.MaxTextBox = New System.Windows.Forms.TextBox()
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -62,17 +68,18 @@ Partial Class Form1
         'RichTextBox1
         '
         Me.RichTextBox1.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 89)
+        Me.RichTextBox1.Location = New System.Drawing.Point(12, 153)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(258, 369)
+        Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
+        Me.RichTextBox1.Size = New System.Drawing.Size(258, 305)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 45)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 19)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(202, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(162, 20)
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.Text = "?scam <id>"
         '
@@ -83,7 +90,7 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(197, 69)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 42)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(78, 17)
         Me.CheckBox1.TabIndex = 4
@@ -100,7 +107,7 @@ Partial Class Form1
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(13, 69)
+        Me.CheckBox2.Location = New System.Drawing.Point(15, 19)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(67, 17)
         Me.CheckBox2.TabIndex = 5
@@ -110,16 +117,16 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(107, 70)
+        Me.Label1.Location = New System.Drawing.Point(115, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 13)
+        Me.Label1.Size = New System.Drawing.Size(106, 13)
         Me.Label1.TabIndex = 6
-        Me.Label1.Text = "< Lenght >"
+        Me.Label1.Text = "< Detection Range >"
         '
         'MinTextBox
         '
         Me.MinTextBox.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MinTextBox.Location = New System.Drawing.Point(89, 67)
+        Me.MinTextBox.Location = New System.Drawing.Point(97, 17)
         Me.MinTextBox.Name = "MinTextBox"
         Me.MinTextBox.Size = New System.Drawing.Size(18, 20)
         Me.MinTextBox.TabIndex = 7
@@ -128,7 +135,7 @@ Partial Class Form1
         'MaxTextBox
         '
         Me.MaxTextBox.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MaxTextBox.Location = New System.Drawing.Point(165, 67)
+        Me.MaxTextBox.Location = New System.Drawing.Point(227, 18)
         Me.MaxTextBox.Name = "MaxTextBox"
         Me.MaxTextBox.Size = New System.Drawing.Size(18, 20)
         Me.MaxTextBox.TabIndex = 8
@@ -138,35 +145,81 @@ Partial Class Form1
         '
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Enabled = False
-        Me.CheckBox3.Location = New System.Drawing.Point(220, 47)
+        Me.CheckBox3.Location = New System.Drawing.Point(82, 42)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(54, 17)
         Me.CheckBox3.TabIndex = 9
         Me.CheckBox3.Text = "Auto+"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.MaxTextBox)
+        Me.GroupBox1.Controls.Add(Me.MinTextBox)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 44)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(257, 42)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "ID Gathering"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.CheckBox3)
+        Me.GroupBox2.Controls.Add(Me.CheckBox4)
+        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Location = New System.Drawing.Point(13, 88)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(256, 65)
+        Me.GroupBox2.TabIndex = 11
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "ID Pasting"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(174, 19)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox2.TabIndex = 11
+        Me.TextBox2.Text = "Discord"
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Checked = True
+        Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox4.Location = New System.Drawing.Point(174, 43)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox4.TabIndex = 10
+        Me.CheckBox4.Text = "APP Check"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(281, 469)
-        Me.Controls.Add(Me.CheckBox3)
-        Me.Controls.Add(Me.MaxTextBox)
-        Me.Controls.Add(Me.MinTextBox)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Quick Scam Paster"
         Me.TopMost = True
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -183,4 +236,8 @@ Partial Class Form1
     Friend WithEvents MinTextBox As TextBox
     Friend WithEvents MaxTextBox As TextBox
     Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CheckBox4 As CheckBox
+    Friend WithEvents TextBox2 As TextBox
 End Class
