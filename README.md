@@ -2,7 +2,7 @@
 
 This is a small purpose built assistance app to help with manual moderation on Discord.
 
-The main job is to automatically extract user ID's copied from the moderation dashboard and then allow them to be pasted with a preformatted command.
+The main job is to monitor the users clipboard and automatically extract user Id's manually copied from the moderation dashboard or other places and then allow them to be pasted with a preformatted command.
 
 
 
