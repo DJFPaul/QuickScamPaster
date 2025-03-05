@@ -13,4 +13,5 @@ Will paste the next ID into the currently active field when ENTER has been press
 ### Auto+
 And experimental mode that will register the left mouse click (Confirming a bot button) and tab back into the chat box to type the next command.
 
-![image](https://github.com/user-attachments/assets/18c19959-cb8f-433d-9a2d-d6b2ecf2109c)
+![image](https://github.com/user-attachments/assets/bb2be35f-fbfe-4d15-b26b-590fa7fe94d8)
+
