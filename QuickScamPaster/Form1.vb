@@ -6,6 +6,7 @@ Public Class Form1
     Dim LastID As String = ""
     Dim EnterLock As Boolean = False
     Dim MouseLock As Boolean = False
+    Dim HasPastedSomething As Boolean = False
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If RichTextBox1.Text.Contains(My.Computer.Clipboard.GetText) = True Then
             Button1.BackColor = Color.Red
@@ -36,7 +37,9 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        If My.Computer.FileSystem.FileExists(Application.StartupPath & "\command.txt") Then
+            TextBox1.Text = My.Computer.FileSystem.ReadAllText(Application.StartupPath & "\command.txt")
+        End If
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -53,7 +56,7 @@ Public Class Form1
     Private Sub Keyobserver_Tick(sender As Object, e As EventArgs) Handles Keyobserver.Tick
 
         If GetAsyncKeyState(Keys.Enter) = -32767 And EnterLock = False Then
-            If GetActiveProcess.ProcessName = TextBox2.Text Or CheckBox4.Checked = False Then
+            If GetActiveProcess.ProcessName = ComboBox1.Text Or CheckBox4.Checked = False Then
                 EnterLock = True
                 System.Threading.Thread.Sleep(64)
                 If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
@@ -69,10 +72,10 @@ Public Class Form1
         End If
 
         If GetAsyncKeyState(Keys.LButton) = -32767 And CheckBox3.Checked = True And MouseLock = False Then
-            If GetActiveProcess.ProcessName = TextBox2.Text Or CheckBox4.Checked = False Then
+            If GetActiveProcess.ProcessName = ComboBox1.Text Or CheckBox4.Checked = False Then
                 MouseLock = True
                 System.Threading.Thread.Sleep(64)
-                If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Then
+                If RichTextBox1.Lines.Count >= 0 And RichTextBox1.Text <> "" Or HasPastedSomething = True Then
                     SendKeys.Send("{TAB}")
                 End If
 
@@ -94,6 +97,14 @@ Public Class Form1
                             RichTextBox1.SelectionLength = RichTextBox1.Lines(0).Length + 1
                             RichTextBox1.SelectedText = String.Empty
                         End If
+                        HasPastedSomething = True
+                    ElseIf HasPastedSomething = True Then
+                        HasPastedSomething = False
+                        System.Threading.Thread.Sleep(64)
+                        SendKeys.Send("{ENTER}")
+
+                        System.Threading.Thread.Sleep(128)
+
                     End If
                 End If
             End If
@@ -104,7 +115,7 @@ Public Class Form1
     End Sub
     Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox2.Checked = True Then
-            LastID = My.Computer.Clipboard.GetText
+            'LastID = My.Computer.Clipboard.GetText
             Clipboardobserver.Start()
             CheckBox1.CheckState = False
         Else
@@ -141,14 +152,14 @@ Public Class Form1
     End Function
 End Class
 Public NotInheritable Class NativeMethods
-    Private Sub New() 'Private constructor as we're not supposed to create instances of this class.
-    End Sub
+        Private Sub New() 'Private constructor as we're not supposed to create instances of this class.
+        End Sub
 
-    <DllImport("user32.dll")>
-    Public Shared Function GetForegroundWindow() As IntPtr
-    End Function
+        <DllImport("user32.dll")>
+        Public Shared Function GetForegroundWindow() As IntPtr
+        End Function
 
-    <DllImport("user32.dll")>
-    Public Shared Function GetWindowThreadProcessId(ByVal hWnd As IntPtr, <Out()> ByRef lpdwProcessId As UInteger) As UInteger
-    End Function
-End Class
+        <DllImport("user32.dll")>
+        Public Shared Function GetWindowThreadProcessId(ByVal hWnd As IntPtr, <Out()> ByRef lpdwProcessId As UInteger) As UInteger
+        End Function
+    End Class

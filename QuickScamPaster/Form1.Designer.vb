@@ -39,7 +39,7 @@ Partial Class Form1
         Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -68,10 +68,10 @@ Partial Class Form1
         'RichTextBox1
         '
         Me.RichTextBox1.Font = New System.Drawing.Font("Consolas", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 153)
+        Me.RichTextBox1.Location = New System.Drawing.Point(12, 189)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
-        Me.RichTextBox1.Size = New System.Drawing.Size(258, 305)
+        Me.RichTextBox1.Size = New System.Drawing.Size(258, 269)
         Me.RichTextBox1.TabIndex = 2
         Me.RichTextBox1.Text = ""
         '
@@ -79,7 +79,7 @@ Partial Class Form1
         '
         Me.TextBox1.Location = New System.Drawing.Point(6, 19)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(162, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(244, 20)
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.Text = "?scam <id>"
         '
@@ -90,7 +90,7 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 44)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 47)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(78, 17)
         Me.CheckBox1.TabIndex = 4
@@ -145,7 +145,7 @@ Partial Class Form1
         '
         Me.CheckBox3.AutoSize = True
         Me.CheckBox3.Enabled = False
-        Me.CheckBox3.Location = New System.Drawing.Point(82, 44)
+        Me.CheckBox3.Location = New System.Drawing.Point(6, 70)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(54, 17)
         Me.CheckBox3.TabIndex = 9
@@ -167,32 +167,34 @@ Partial Class Form1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
         Me.GroupBox2.Controls.Add(Me.CheckBox3)
         Me.GroupBox2.Controls.Add(Me.CheckBox4)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Controls.Add(Me.CheckBox1)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 88)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(256, 65)
+        Me.GroupBox2.Size = New System.Drawing.Size(256, 95)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "ID Pasting"
         '
-        'TextBox2
+        'ComboBox1
         '
-        Me.TextBox2.Location = New System.Drawing.Point(174, 19)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(76, 20)
-        Me.TextBox2.TabIndex = 11
-        Me.TextBox2.Text = "Discord"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Discord", "DiscordCanary"})
+        Me.ComboBox1.Location = New System.Drawing.Point(157, 47)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(93, 21)
+        Me.ComboBox1.TabIndex = 12
+        Me.ComboBox1.Text = "Discord"
         '
         'CheckBox4
         '
         Me.CheckBox4.AutoSize = True
         Me.CheckBox4.Checked = True
         Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox4.Location = New System.Drawing.Point(174, 44)
+        Me.CheckBox4.Location = New System.Drawing.Point(157, 70)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(81, 17)
         Me.CheckBox4.TabIndex = 10
@@ -239,5 +241,5 @@ Partial Class Form1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
