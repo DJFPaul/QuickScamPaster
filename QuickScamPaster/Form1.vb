@@ -150,6 +150,10 @@ Public Class Form1
 
         Return If(ProcessID <> 0, Process.GetProcessById(ProcessID), Nothing)
     End Function
+
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
+        Label2.Text = RichTextBox1.Lines.Length
+    End Sub
 End Class
 Public NotInheritable Class NativeMethods
         Private Sub New() 'Private constructor as we're not supposed to create instances of this class.
